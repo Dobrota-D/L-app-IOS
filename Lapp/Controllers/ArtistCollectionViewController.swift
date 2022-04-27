@@ -6,25 +6,72 @@
 //
 
 import UIKit
+import Foundation
+
+//struct
+struct Artist{
+    let name: String
+    let link: String
+}
+extension Artist{
+    init?(json: [String:Any]){
+        guard let name = json["name"] as? String,
+              let link = json["link"] as? String
+        else{
+            return nil
+        }
+        self.name = name
+        self.link = link
+    }
+}
 
 private let reuseIdentifier = "Cell"
 
 class ArtistCollectionViewController: UICollectionViewController {
     
-    let dataSource : [String] = [
-        "Nekfeu", "Lorenzo", "Wejdene", "Orelsan", "Vald", "Damso", "Colombine"
-    ]
+    var dataSource : [Artist] = []
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        self.title = "home"
+        self.title = "Home"
+        
+        //connection API Deezer recupere l'URL qui retourne un dictionnaire, data --> renvoie un tableau de dictionnaire
+        let config = URLSessionConfiguration.default
+                let session = URLSession(configuration: config)
+                
+                let url = URL(string: "https://api.deezer.com/search/artist?q=a")!
+                
+                let task = session.dataTask(with: url) { (data, response, error) in
+                    if error != nil {
+                        print(error!.localizedDescription)
+                    } else {
+                        if let json = try? JSONSerialization.jsonObject(with: data!, options: .mutableContainers) {
+                            if let data = json as? [String: AnyObject] {
+                                
+                                if let items = data["data"] as? [[String: AnyObject]] {
+                                    for item in items {
+                                        print(item["name"]!)
+                                        //self.browser.append(item["link"]! as! String)
+                                        if let artist = Artist(json: item) {
+                                            self.dataSource.append(artist)
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    
+                    DispatchQueue.main.async {
+                        self.collectionView.reloadData()
+                    }
+                    
+                }
+                task.resume()
         
         // Register cell classes
-        self.collectionView!.register(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
+        // self.collectionView!.register(ArtistCollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
 
         // Do any additional setup after loading the view.
     }
@@ -53,10 +100,10 @@ class ArtistCollectionViewController: UICollectionViewController {
     }
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        var cell = UICollectionViewCell()
+        var cell = ArtistCollectionViewCell()
         
         if let artistCell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath) as? ArtistCollectionViewCell {
-            artistCell.configure(with: dataSource[indexPath.row])
+            artistCell.configure(with: dataSource[indexPath.row].name)
             cell = artistCell
         }
         // Configure the cell

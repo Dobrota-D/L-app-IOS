@@ -12,36 +12,40 @@
         <scene sceneID="rCO-93-Cs8">
             <objects>
                 <collectionViewController id="KIk-vW-4HL" customClass="ArtistCollectionViewController" customModule="Lapp" customModuleProvider="target" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="wKr-eT-l5L">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFill" dataMode="prototypes" id="wKr-eT-l5L">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemRedColor"/>
-                        <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Cy6-YV-hfP">
-                            <size key="itemSize" width="128" height="128"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="8r9-8e-Zkl">
+                            <size key="itemSize" width="120" height="120"/>
                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         </collectionViewFlowLayout>
                         <cells>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Cell" id="lq9-nG-IbD" customClass="ArtistCollectionViewCell" customModule="Lapp" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                <rect key="frame" x="0.0" y="0.0" width="120" height="120"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="aXD-Nz-654">
-                                    <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="120" height="120"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PvI-s1-Pgl">
-                                            <rect key="frame" x="43" y="53.5" width="42" height="21"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="150" verticalHuggingPriority="150" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="150" translatesAutoresizingMaskIntoConstraints="NO" id="PvI-s1-Pgl">
+                                            <rect key="frame" x="0.0" y="0.0" width="120" height="120"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="PvI-s1-Pgl" firstAttribute="centerY" secondItem="aXD-Nz-654" secondAttribute="centerY" id="R35-pf-zMh"/>
-                                        <constraint firstItem="PvI-s1-Pgl" firstAttribute="centerX" secondItem="aXD-Nz-654" secondAttribute="centerX" id="aIc-pg-Auv"/>
+                                        <constraint firstItem="PvI-s1-Pgl" firstAttribute="top" secondItem="aXD-Nz-654" secondAttribute="top" id="azM-9m-Sub"/>
+                                        <constraint firstAttribute="bottom" secondItem="PvI-s1-Pgl" secondAttribute="bottom" id="eXG-lB-Evy"/>
+                                        <constraint firstItem="PvI-s1-Pgl" firstAttribute="leading" secondItem="aXD-Nz-654" secondAttribute="leading" id="k7M-Xs-X4G"/>
+                                        <constraint firstAttribute="trailing" secondItem="PvI-s1-Pgl" secondAttribute="trailing" id="sX6-Po-seO"/>
                                     </constraints>
                                 </collectionViewCellContentView>
+                                <color key="backgroundColor" systemColor="secondarySystemBackgroundColor"/>
+                                <size key="customSize" width="120" height="120"/>
                                 <connections>
                                     <outlet property="ArtistLabel" destination="PvI-s1-Pgl" id="NLo-96-SY7"/>
                                 </connections>
@@ -53,6 +57,9 @@
                         </connections>
                     </collectionView>
                     <navigationItem key="navigationItem" id="ABU-ib-uVe"/>
+                    <connections>
+                        <outlet property="collectionView" destination="wKr-eT-l5L" id="SEy-EO-nEM"/>
+                    </connections>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="M7j-WZ-zsM" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -97,8 +104,11 @@
         </scene>
     </scenes>
     <resources>
-        <systemColor name="systemRedColor">
-            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        <systemColor name="secondarySystemBackgroundColor">
+            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
     </resources>
 </document>
