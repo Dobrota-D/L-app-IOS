@@ -8,9 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		44451D4F28183D38006194A1 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44451D4E28183D38006194A1 /* HomeViewController.swift */; };
-		44814EE428192C9400E5AAFD /* ArtistTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44814EE328192C9400E5AAFD /* ArtistTableViewController.swift */; };
 		44814EE828192D1C00E5AAFD /* AlbumTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44814EE728192D1C00E5AAFD /* AlbumTableViewController.swift */; };
 		44814EEA28192D3900E5AAFD /* SongViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44814EE928192D3900E5AAFD /* SongViewController.swift */; };
+		846AC609281930ED00E0CB2E /* ArtistCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846AC608281930ED00E0CB2E /* ArtistCollectionViewController.swift */; };
 		84ABB2DC2817D7EB00150459 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84ABB2DB2817D7EB00150459 /* AppDelegate.swift */; };
 		84ABB2DE2817D7EB00150459 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84ABB2DD2817D7EB00150459 /* SceneDelegate.swift */; };
 		84ABB2E32817D7EB00150459 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84ABB2E12817D7EB00150459 /* Main.storyboard */; };
@@ -20,9 +20,9 @@
 
 /* Begin PBXFileReference section */
 		44451D4E28183D38006194A1 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
-		44814EE328192C9400E5AAFD /* ArtistTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistTableViewController.swift; sourceTree = "<group>"; };
 		44814EE728192D1C00E5AAFD /* AlbumTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumTableViewController.swift; sourceTree = "<group>"; };
 		44814EE928192D3900E5AAFD /* SongViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongViewController.swift; sourceTree = "<group>"; };
+		846AC608281930ED00E0CB2E /* ArtistCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistCollectionViewController.swift; sourceTree = "<group>"; };
 		84ABB2D82817D7EB00150459 /* Lapp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Lapp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		84ABB2DB2817D7EB00150459 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		84ABB2DD2817D7EB00150459 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -55,7 +55,6 @@
 			isa = PBXGroup;
 			children = (
 				44451D4E28183D38006194A1 /* HomeViewController.swift */,
-				44814EE328192C9400E5AAFD /* ArtistTableViewController.swift */,
 				44814EE728192D1C00E5AAFD /* AlbumTableViewController.swift */,
 				44814EE928192D3900E5AAFD /* SongViewController.swift */,
 			);
@@ -84,6 +83,7 @@
 				84ABB2DB2817D7EB00150459 /* AppDelegate.swift */,
 				84ABB2DD2817D7EB00150459 /* SceneDelegate.swift */,
 				84ABB2E12817D7EB00150459 /* Main.storyboard */,
+				846AC608281930ED00E0CB2E /* ArtistCollectionViewController.swift */,
 				44814EE628192CF600E5AAFD /* Controllers */,
 				44451D4B28183BB0006194A1 /* Ressource */,
 				84ABB2E62817D7F000150459 /* LaunchScreen.storyboard */,
@@ -164,9 +164,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				84ABB2DC2817D7EB00150459 /* AppDelegate.swift in Sources */,
-				44814EE428192C9400E5AAFD /* ArtistTableViewController.swift in Sources */,
 				44814EE828192D1C00E5AAFD /* AlbumTableViewController.swift in Sources */,
 				44814EEA28192D3900E5AAFD /* SongViewController.swift in Sources */,
+				846AC609281930ED00E0CB2E /* ArtistCollectionViewController.swift in Sources */,
 				84ABB2DE2817D7EB00150459 /* SceneDelegate.swift in Sources */,
 				44451D4F28183D38006194A1 /* HomeViewController.swift in Sources */,
 			);
