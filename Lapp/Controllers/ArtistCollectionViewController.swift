@@ -10,6 +10,10 @@ import UIKit
 private let reuseIdentifier = "Cell"
 
 class ArtistCollectionViewController: UICollectionViewController {
+    
+    let dataSource : [String] = [
+        "Nekfeu", "Lorenzo", "Wejdene", "Orelsan", "Vald", "Damso", "Colombine"
+    ]
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -17,6 +21,8 @@ class ArtistCollectionViewController: UICollectionViewController {
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
+        self.title = "home"
+        
         // Register cell classes
         self.collectionView!.register(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
 
@@ -37,18 +43,22 @@ class ArtistCollectionViewController: UICollectionViewController {
 
     override func numberOfSections(in collectionView: UICollectionView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
 
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of items
-        return 0
+        return dataSource.count
     }
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath)
-    
+        var cell = UICollectionViewCell()
+        
+        if let artistCell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath) as? ArtistCollectionViewCell {
+            artistCell.configure(with: dataSource[indexPath.row])
+            cell = artistCell
+        }
         // Configure the cell
     
         return cell

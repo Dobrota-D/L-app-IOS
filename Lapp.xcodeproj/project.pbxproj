@@ -16,6 +16,7 @@
 		84ABB2E32817D7EB00150459 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84ABB2E12817D7EB00150459 /* Main.storyboard */; };
 		84ABB2E52817D7F000150459 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 84ABB2E42817D7F000150459 /* Assets.xcassets */; };
 		84ABB2E82817D7F000150459 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84ABB2E62817D7F000150459 /* LaunchScreen.storyboard */; };
+		90EBDA31281936B700C46754 /* ArtistCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90EBDA30281936B700C46754 /* ArtistCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		84ABB2E42817D7F000150459 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		84ABB2E72817D7F000150459 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		84ABB2E92817D7F000150459 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		90EBDA30281936B700C46754 /* ArtistCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistCollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,6 +57,7 @@
 			isa = PBXGroup;
 			children = (
 				44451D4E28183D38006194A1 /* HomeViewController.swift */,
+				846AC608281930ED00E0CB2E /* ArtistCollectionViewController.swift */,
 				44814EE728192D1C00E5AAFD /* AlbumTableViewController.swift */,
 				44814EE928192D3900E5AAFD /* SongViewController.swift */,
 			);
@@ -83,7 +86,7 @@
 				84ABB2DB2817D7EB00150459 /* AppDelegate.swift */,
 				84ABB2DD2817D7EB00150459 /* SceneDelegate.swift */,
 				84ABB2E12817D7EB00150459 /* Main.storyboard */,
-				846AC608281930ED00E0CB2E /* ArtistCollectionViewController.swift */,
+				90EBDA30281936B700C46754 /* ArtistCollectionViewCell.swift */,
 				44814EE628192CF600E5AAFD /* Controllers */,
 				44451D4B28183BB0006194A1 /* Ressource */,
 				84ABB2E62817D7F000150459 /* LaunchScreen.storyboard */,
@@ -164,6 +167,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				84ABB2DC2817D7EB00150459 /* AppDelegate.swift in Sources */,
+				90EBDA31281936B700C46754 /* ArtistCollectionViewCell.swift in Sources */,
 				44814EE828192D1C00E5AAFD /* AlbumTableViewController.swift in Sources */,
 				44814EEA28192D3900E5AAFD /* SongViewController.swift in Sources */,
 				846AC609281930ED00E0CB2E /* ArtistCollectionViewController.swift in Sources */,
