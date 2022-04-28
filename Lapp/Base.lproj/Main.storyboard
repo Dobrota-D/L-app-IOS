@@ -1,13 +1,82 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="uIk-U1-uXi">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="iJo-w6-dsB">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--Song View Controller-->
+        <scene sceneID="lUd-m9-XfJ">
+            <objects>
+                <viewController id="iJo-w6-dsB" customClass="SongViewController" customModule="Lapp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="c6X-QK-odI">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="TVC-4M-qF5">
+                                <rect key="frame" x="0.0" y="44" width="403" height="235"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="MUSIC TITLE" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="120" translatesAutoresizingMaskIntoConstraints="NO" id="jRK-rK-AnR">
+                                <rect key="frame" x="150" y="375" width="114" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Author Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tNj-y3-1HF">
+                                <rect key="frame" x="150" y="316" width="100.5" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="knZ-YO-nnf">
+                                <rect key="frame" x="122" y="724" width="157" height="99"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain"/>
+                                <connections>
+                                    <action selector="SongButton:" destination="iJo-w6-dsB" eventType="touchUpInside" id="dVG-Si-GWa"/>
+                                </connections>
+                            </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" highlightedImage="arrowshape.turn.up.backward.fill" catalog="system" highlighted="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7bN-ct-ceA">
+                                <rect key="frame" x="0.0" y="724" width="114" height="99"/>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" highlightedImage="play.fill" catalog="system" highlighted="YES" translatesAutoresizingMaskIntoConstraints="NO" id="GpQ-5X-gJy">
+                                <rect key="frame" x="122" y="724" width="157" height="99"/>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" highlightedImage="arrowshape.turn.up.right.fill" catalog="system" highlighted="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zwi-UT-3va">
+                                <rect key="frame" x="287" y="724" width="127" height="99"/>
+                            </imageView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="MZA-CZ-7CU"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="tNj-y3-1HF" firstAttribute="top" secondItem="jRK-rK-AnR" secondAttribute="bottom" constant="8.5" id="402-jl-iNn"/>
+                            <constraint firstItem="tNj-y3-1HF" firstAttribute="leading" secondItem="MZA-CZ-7CU" secondAttribute="leading" constant="150" id="C7Z-bf-vef"/>
+                            <constraint firstItem="jRK-rK-AnR" firstAttribute="top" secondItem="MZA-CZ-7CU" secondAttribute="top" constant="243" id="EbE-9b-wTG"/>
+                            <constraint firstItem="jRK-rK-AnR" firstAttribute="top" secondItem="TVC-4M-qF5" secondAttribute="bottom" constant="8" symbolic="YES" id="Edu-1f-eKs"/>
+                            <constraint firstAttribute="trailing" secondItem="jRK-rK-AnR" secondAttribute="trailing" constant="150" id="F4s-Yp-nQj"/>
+                            <constraint firstItem="zwi-UT-3va" firstAttribute="top" secondItem="MZA-CZ-7CU" secondAttribute="top" constant="680" id="F9X-2z-G5d"/>
+                            <constraint firstItem="7bN-ct-ceA" firstAttribute="leading" secondItem="MZA-CZ-7CU" secondAttribute="leading" id="Lou-1x-cS0"/>
+                            <constraint firstItem="MZA-CZ-7CU" firstAttribute="bottom" secondItem="7bN-ct-ceA" secondAttribute="bottom" constant="39" id="XzU-bN-a5E"/>
+                            <constraint firstItem="MZA-CZ-7CU" firstAttribute="trailing" secondItem="zwi-UT-3va" secondAttribute="trailing" id="fvv-l7-omk"/>
+                            <constraint firstItem="MZA-CZ-7CU" firstAttribute="trailing" secondItem="tNj-y3-1HF" secondAttribute="trailing" constant="163.5" id="fz5-Wd-65Z"/>
+                            <constraint firstItem="jRK-rK-AnR" firstAttribute="leading" secondItem="c6X-QK-odI" secondAttribute="leading" constant="150" id="gIL-H9-b5t"/>
+                            <constraint firstItem="zwi-UT-3va" firstAttribute="leading" secondItem="GpQ-5X-gJy" secondAttribute="trailing" constant="8" symbolic="YES" id="jR9-Fa-ZF5"/>
+                            <constraint firstItem="7bN-ct-ceA" firstAttribute="top" secondItem="MZA-CZ-7CU" secondAttribute="top" constant="680" id="jWA-Lp-8nc"/>
+                            <constraint firstItem="GpQ-5X-gJy" firstAttribute="top" secondItem="MZA-CZ-7CU" secondAttribute="top" constant="680" id="kqO-Ar-VNu"/>
+                            <constraint firstItem="MZA-CZ-7CU" firstAttribute="bottom" secondItem="zwi-UT-3va" secondAttribute="bottom" constant="39" id="o40-qw-c4d"/>
+                            <constraint firstItem="MZA-CZ-7CU" firstAttribute="bottom" secondItem="GpQ-5X-gJy" secondAttribute="bottom" constant="39" id="yxG-HP-dPs"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5Ug-cP-TdZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1540.5797101449277" y="14.732142857142856"/>
+        </scene>
         <!--Artist Collection View Controller-->
         <scene sceneID="rCO-93-Cs8">
             <objects>
@@ -87,7 +156,7 @@
         <!--Tab Bar Controller-->
         <scene sceneID="KC6-ny-VeP">
             <objects>
-                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="uIk-U1-uXi" sceneMemberID="viewController">
+                <tabBarController restorationIdentifier="UIViewController" storyboardIdentifier="UIViewController" automaticallyAdjustsScrollViewInsets="NO" id="uIk-U1-uXi" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="bP0-az-kIK">
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
@@ -104,6 +173,9 @@
         </scene>
     </scenes>
     <resources>
+        <image name="arrowshape.turn.up.backward.fill" catalog="system" width="128" height="106"/>
+        <image name="arrowshape.turn.up.right.fill" catalog="system" width="128" height="106"/>
+        <image name="play.fill" catalog="system" width="116" height="128"/>
         <systemColor name="secondarySystemBackgroundColor">
             <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
