@@ -9,10 +9,9 @@ import UIKit
 
 class ArtistCollectionViewCell: UICollectionViewCell {
     
-    @IBOutlet private weak var ArtistLabel: UILabel!
+    @IBOutlet weak var ArtistLabel: UILabel!
     
     func configure (with artist: String){
-        
         ArtistLabel.text = artist
     }
 }
