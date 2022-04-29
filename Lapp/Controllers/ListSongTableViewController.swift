@@ -10,16 +10,26 @@ import UIKit
 struct Song{
     let name: String
     let link: String
+    let id: Int
+    let song: String
+//    let artist: String
 }
 extension Song{
     init?(json: [String:Any]){
         guard let name = json["title"] as? String,
-              let link = json["link"] as? String
+              let link = json["link"] as? String,
+              let id = json["id"] as? Int,
+              let song = json["preview"] as? String
+//              let artist = json["artist"] as? String
+            
         else{
             return nil
         }
         self.name = name
         self.link = link
+        self.id = id
+        self.song = song
+//        self.artist = artist
     }
 }
 
@@ -28,10 +38,12 @@ class ListSongTableViewController: UITableViewController {
     var idAlbum = 1234
     var nameAlbum = ""
     var linkArtist = ""
+    var pictureArtist = ""
+    var artistName = ""
     var dataSource : [Song] = []
     
     override func viewDidLoad() {
-        self.title = nameAlbum
+        self.title = "Morceaux de \(nameAlbum)"
         super.viewDidLoad()
         
         let config = URLSessionConfiguration.default
@@ -85,9 +97,18 @@ class ListSongTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if let vcWeb = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "webview") as? ArtistInfoWebViewController{
-            vcWeb.linkArtist = self.dataSource[indexPath.row].link
-            self.present(vcWeb, animated: true, completion: nil)
+//        if let vcWeb = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "webview") as? ArtistInfoWebViewController{
+//            vcWeb.linkArtist = self.dataSource[indexPath.row].link
+//            self.present(vcWeb, animated: true, completion: nil)
+//        }
+        if let vcSong = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "songViewId") as? SongViewController{
+            vcSong.urlString = self.dataSource[indexPath.row].song
+            vcSong.titleSong = self.dataSource[indexPath.row].name
+            vcSong.songImage = self.pictureArtist
+            vcSong.nameArtist = self.artistName
+            print("song", vcSong.urlString)
+            print("id", self.dataSource[indexPath.row].id)
+            self.navigationController?.pushViewController(vcSong, animated: true)
         }
     }
     

@@ -14,10 +14,12 @@ class ArtistInfoWebViewController: UIViewController {
     @IBOutlet weak var webView: WKWebView!
     @IBOutlet weak var searchTextField: UITextField!
     
-    var linkArtist = "http:\\www.yahoo.com"
+    var linkArtist = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.title = "Info Artists"
         
         self.reloadWebView(text: linkArtist)
         self.searchTextField.text = self.linkArtist

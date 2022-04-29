@@ -32,13 +32,14 @@ class ListAlbumTableViewController: UITableViewController {
     var idArtist = 1234
     var nameArtist = ""
     var linkArtist = ""
+    var pictureArtist = ""
     var dataSource : [Album] = []
     
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.title = nameArtist
+        self.title = "Album de \(nameArtist)"
         
                 
         let config = URLSessionConfiguration.default
@@ -104,7 +105,10 @@ class ListAlbumTableViewController: UITableViewController {
             vc.linkArtist = self.linkArtist
             vc.idAlbum = self.dataSource[indexPath.row].id
             vc.nameAlbum = self.dataSource[indexPath.row].name
-            self.navigationController?.pushViewController(vc, animated: true)
+            vc.pictureArtist = self.pictureArtist
+            vc.artistName = self.nameArtist
+            print("idAlbum", vc.idAlbum)
+                        self.navigationController?.pushViewController(vc, animated: true)
         }
 //            if else vc2 = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "infoArtist") as? ArtistInfoWebViewController {
 //            self.navigationController?.present(vc2, animated: true, completion: nil)

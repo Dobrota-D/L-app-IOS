@@ -34,7 +34,7 @@ class ListArtistTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.title = "Informations Artist"
+        self.title = "Informations Artists"
         
         let config = URLSessionConfiguration.default
                 let session = URLSession(configuration: config)

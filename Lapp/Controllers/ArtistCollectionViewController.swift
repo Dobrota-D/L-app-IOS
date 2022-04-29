@@ -42,7 +42,7 @@ class ArtistCollectionViewController: UICollectionViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.title = "Artist"
+        self.title = "Most Popular Artist"
         
         let config = URLSessionConfiguration.default
                 let session = URLSession(configuration: config)
@@ -102,6 +102,7 @@ class ArtistCollectionViewController: UICollectionViewController {
             vc.idArtist = self.dataSource[indexPath.row].id
             vc.nameArtist = self.dataSource[indexPath.row].name
             vc.linkArtist = self.dataSource[indexPath.row].link
+            vc.pictureArtist = self.dataSource[indexPath.row].image
             self.navigationController?.pushViewController(vc, animated: true)
         }
     }

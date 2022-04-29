@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		44865FF7281BED10003F42F7 /* ListArtistTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44865FF6281BED10003F42F7 /* ListArtistTableViewController.swift */; };
+		44865FF9281C0556003F42F7 /* SongViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44865FF8281C0556003F42F7 /* SongViewController.swift */; };
 		449FDE77281A930B009480AF /* ArtistInfoWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 449FDE76281A930B009480AF /* ArtistInfoWebViewController.swift */; };
 		44ABCA76281976D7002B8F3F /* ListAlbumTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44ABCA75281976D7002B8F3F /* ListAlbumTableViewController.swift */; };
 		44ABCA78281976E9002B8F3F /* ListSongTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44ABCA77281976E9002B8F3F /* ListSongTableViewController.swift */; };
@@ -22,6 +23,7 @@
 
 /* Begin PBXFileReference section */
 		44865FF6281BED10003F42F7 /* ListArtistTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListArtistTableViewController.swift; sourceTree = "<group>"; };
+		44865FF8281C0556003F42F7 /* SongViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SongViewController.swift; path = ../SongViewController.swift; sourceTree = "<group>"; };
 		449FDE76281A930B009480AF /* ArtistInfoWebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistInfoWebViewController.swift; sourceTree = "<group>"; };
 		44ABCA75281976D7002B8F3F /* ListAlbumTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListAlbumTableViewController.swift; sourceTree = "<group>"; };
 		44ABCA77281976E9002B8F3F /* ListSongTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListSongTableViewController.swift; sourceTree = "<group>"; };
@@ -58,6 +60,7 @@
 		44814EE628192CF600E5AAFD /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				44865FF8281C0556003F42F7 /* SongViewController.swift */,
 				846AC608281930ED00E0CB2E /* ArtistCollectionViewController.swift */,
 				44ABCA75281976D7002B8F3F /* ListAlbumTableViewController.swift */,
 				44ABCA77281976E9002B8F3F /* ListSongTableViewController.swift */,
@@ -175,6 +178,7 @@
 				44ABCA76281976D7002B8F3F /* ListAlbumTableViewController.swift in Sources */,
 				90EBDA31281936B700C46754 /* ArtistCollectionViewCell.swift in Sources */,
 				449FDE77281A930B009480AF /* ArtistInfoWebViewController.swift in Sources */,
+				44865FF9281C0556003F42F7 /* SongViewController.swift in Sources */,
 				846AC609281930ED00E0CB2E /* ArtistCollectionViewController.swift in Sources */,
 				84ABB2DE2817D7EB00150459 /* SceneDelegate.swift in Sources */,
 			);
@@ -323,6 +327,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 2MCZ7VKQ22;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Lapp/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -350,6 +355,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 2MCZ7VKQ22;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Lapp/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
