@@ -42,7 +42,7 @@ class ArtistCollectionViewController: UICollectionViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.title = "Home"
+        self.title = "Artist"
         
         let config = URLSessionConfiguration.default
                 let session = URLSession(configuration: config)
@@ -58,8 +58,6 @@ class ArtistCollectionViewController: UICollectionViewController {
                                 
                                 if let items = data["data"] as? [[String: AnyObject]] {
                                     for item in items {
-                                        print(item["name"]!)
-                                        print(item["id"]!)
                                         //self.browser.append(item["link"]! as! String)
                                         if let artist = Artist(json: item) {
                                             self.dataSource.append(artist)
@@ -76,7 +74,6 @@ class ArtistCollectionViewController: UICollectionViewController {
                     
                 }
                 task.resume()
-    
     }
     
     override func numberOfSections(in collectionView: UICollectionView) -> Int {
@@ -91,22 +88,23 @@ class ArtistCollectionViewController: UICollectionViewController {
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         var cell = ArtistCollectionViewCell()
-        
         if let artistCell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath) as? ArtistCollectionViewCell {
-            artistCell.configure(with: dataSource[indexPath.row].name)
-            cell = artistCell
-        }
+            artistCell.configure(artist: dataSource[indexPath.row].name, imageArtist: dataSource[indexPath.row].image)
+                 cell = artistCell
+             }
         // Configure the cell
         return cell
     }
     
+    
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "listAlbum") as? ListAlbumTableViewController{
-            vc.idAlbum = self.dataSource[indexPath.row].id
+            vc.idArtist = self.dataSource[indexPath.row].id
             vc.nameArtist = self.dataSource[indexPath.row].name
             vc.linkArtist = self.dataSource[indexPath.row].link
-            print("idAlbum = ",vc.idAlbum)
             self.navigationController?.pushViewController(vc, animated: true)
         }
     }
 }
+
+

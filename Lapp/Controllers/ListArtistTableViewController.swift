@@ -1,43 +1,45 @@
 //
-//  ListSongTableViewController.swift
+//  ListArtistTableViewController.swift
 //  Lapp
 //
-//  Created by Paul Geneve on 27/04/2022.
+//  Created by Paul Geneve on 29/04/2022.
 //
 
 import UIKit
+import Foundation
 
-struct Song{
+struct Artistlink{
     let name: String
     let link: String
+    let id: Int
 }
-extension Song{
+extension Artistlink{
     init?(json: [String:Any]){
-        guard let name = json["title"] as? String,
-              let link = json["link"] as? String
-        else{
+        guard let name = json["name"] as? String,
+              let link = json["link"] as? String,
+              let id = json["id"] as? Int
+        else {
             return nil
         }
         self.name = name
         self.link = link
+        self.id = id
     }
 }
 
-class ListSongTableViewController: UITableViewController {
+class ListArtistTableViewController: UITableViewController {
     
-    var idAlbum = 1234
-    var nameAlbum = ""
-    var linkArtist = ""
-    var dataSource : [Song] = []
-    
+    var dataSource : [Artistlink] = []
+
     override func viewDidLoad() {
-        self.title = nameAlbum
         super.viewDidLoad()
+        
+        self.title = "Informations Artist"
         
         let config = URLSessionConfiguration.default
                 let session = URLSession(configuration: config)
                 
-                let url = URL(string: "https://api.deezer.com/album/\(idAlbum)/tracks")!
+                let url = URL(string: "https://api.deezer.com/search/artist?q=a")!
                 
                 let task = session.dataTask(with: url) { (data, response, error) in
                     if error != nil {
@@ -48,22 +50,23 @@ class ListSongTableViewController: UITableViewController {
                                 
                                 if let items = data["data"] as? [[String: AnyObject]] {
                                     for item in items {
-                                        
                                         //self.browser.append(item["link"]! as! String)
-                                        if let song = Song(json: item) {
-                                            self.dataSource.append(song)
+                                        if let artist = Artistlink(json: item) {
+                                            self.dataSource.append(artist)
                                         }
                                     }
                                 }
                             }
                         }
                     }
+                    
                     DispatchQueue.main.async {
                         self.tableView.reloadData()
                     }
                     
                 }
                 task.resume()
+
     }
 
     // MARK: - Table view data source
@@ -79,7 +82,8 @@ class ListSongTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "songReuseIdentifier", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "artistReusible", for: indexPath)
+        
         cell.textLabel?.text = self.dataSource[indexPath.row].name
         return cell
     }
@@ -90,6 +94,4 @@ class ListSongTableViewController: UITableViewController {
             self.present(vcWeb, animated: true, completion: nil)
         }
     }
-    
-    
 }

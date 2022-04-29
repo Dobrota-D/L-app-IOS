@@ -14,7 +14,7 @@ class ArtistInfoWebViewController: UIViewController {
     @IBOutlet weak var webView: WKWebView!
     @IBOutlet weak var searchTextField: UITextField!
     
-    var linkArtist = ""
+    var linkArtist = "http:\\www.yahoo.com"
     
     override func viewDidLoad() {
         super.viewDidLoad()

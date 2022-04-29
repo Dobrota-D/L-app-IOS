@@ -11,22 +11,25 @@ import Foundation
 struct Album{
     let name: String
     let link: String
+    let id: Int
 }
 extension Album{
     init?(json: [String:Any]){
         guard let name = json["title"] as? String,
-              let link = json["link"] as? String
+              let link = json["link"] as? String,
+              let id = json["id"] as? Int
         else{
             return nil
         }
         self.name = name
         self.link = link
+        self.id = id
     }
 }
 
 class ListAlbumTableViewController: UITableViewController {
     
-    var idAlbum = 1234
+    var idArtist = 1234
     var nameArtist = ""
     var linkArtist = ""
     var dataSource : [Album] = []
@@ -37,14 +40,11 @@ class ListAlbumTableViewController: UITableViewController {
         
         self.title = nameArtist
         
-        let item1 = UIBarButtonItem(barButtonSystemItem: .organize, target: self, action: nil)
-        
-        self.navigationItem.rightBarButtonItems = [item1]
-        
+                
         let config = URLSessionConfiguration.default
                 let session = URLSession(configuration: config)
 
-                let url = URL(string: "https://api.deezer.com/artist/\(idAlbum)/albums")!
+                let url = URL(string: "https://api.deezer.com/artist/\(idArtist)/albums")!
 
                 let task = session.dataTask(with: url) { (data, response, error) in
                     if error != nil {
@@ -55,7 +55,6 @@ class ListAlbumTableViewController: UITableViewController {
 
                                 if let items = data["data"] as? [[String: AnyObject]] {
                                     for item in items {
-                                        print(item["title"]!)
                                         //self.browser.append(item["link"]! as! String)
                                         if let album = Album(json: item) {
                                             self.dataSource.append(album)
@@ -101,11 +100,15 @@ class ListAlbumTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "webview") as? ArtistInfoWebViewController{
+        if let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "listSong") as? ListSongTableViewController{
             vc.linkArtist = self.linkArtist
-            
-            self.present(vc, animated: true, completion: nil)
+            vc.idAlbum = self.dataSource[indexPath.row].id
+            vc.nameAlbum = self.dataSource[indexPath.row].name
+            self.navigationController?.pushViewController(vc, animated: true)
         }
+//            if else vc2 = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "infoArtist") as? ArtistInfoWebViewController {
+//            self.navigationController?.present(vc2, animated: true, completion: nil)
+//        }
     }
     
 }
